@@ -1,0 +1,137 @@
+.onoffswitch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.switch {
+    font-size: 20px;
+    position: absolute;
+    display: center;
+    width: 5.2em;
+    height: 2em;
+    overflow: hidden;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #eee;
+    transition: .4s;
+    border-radius: 30px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 20px;
+    border: 1px solid #333;
+    left: 0.4em;
+    bottom: 0.2em;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    transform: translateX(3em);
+}
+
+.switch .text {
+    position: absolute;
+    top: 50%;
+    pointer-events: none;
+    text-transform: uppercase;
+    transform: translateY(-50%);
+    transition: .4s;
+}
+
+.switch .text.on {
+    left: .8rem;
+    transform: translateX(-3rem) translateY(-50%);
+}
+
+.switch .text.off {
+    color: #999;
+    right: .8rem;
+}
+
+input:checked~.text.off {
+    transform: translateX(3rem) translateY(-50%);
+}
+
+input:checked~.text.on {
+    transform: translateX(0) translateY(-50%);
+}
+
+
+
+
+
+
+.back {
+    position: fixed;
+    /* Fixe le bouton par rapport à la fenêtre d'affichage */
+    top: 10px;
+    /* Distance depuis le haut de l'écran */
+    left: 10px;
+    /* Distance depuis le bord gauche de l'écran */
+    z-index: 1000;
+    /* Assure que le bouton reste au-dessus de tous les autres éléments */
+}
+
+button {
+    display: flex;
+    height: 3em;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Couleur de fond blanche avec transparence */
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    border-radius: 10%;
+}
+
+button>svg {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+    transition: all 0.4s ease-in;
+}
+
+button:hover>svg {
+    font-size: 1.2em;
+    transform: translateX(-5px);
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Légère opacité au survol */
+    box-shadow: 9px 9px 33px rgba(209, 209, 209, 0.5), -9px -9px 33px rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
